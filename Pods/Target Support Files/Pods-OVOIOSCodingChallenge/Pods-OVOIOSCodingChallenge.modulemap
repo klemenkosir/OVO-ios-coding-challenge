@@ -1,0 +1,6 @@
+framework module Pods_OVOIOSCodingChallenge {
+  umbrella header "Pods-OVOIOSCodingChallenge-umbrella.h"
+
+  export *
+  module * { export * }
+}
