@@ -82,17 +82,73 @@
                                     <constraint firstItem="83S-PK-YJd" firstAttribute="leading" secondItem="oMw-HA-xXz" secondAttribute="leading" id="dX2-EQ-HHg"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yoG-RL-GJX">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="200" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yoG-RL-GJX">
                                 <rect key="frame" x="0.0" y="80" width="375" height="587"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="jobCell" id="cNT-Xv-Uqe" customClass="JobCell" customModule="OVOIOSCodingChallenge" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="150"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cNT-Xv-Uqe" id="v3b-0W-Jb4">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="149.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="QRB-0f-owz">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Job Title Here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wXW-W0-Q9y">
+                                                            <rect key="frame" x="16" y="16" width="343" height="26"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                            <color key="textColor" red="0.23884078860282898" green="0.48377341032028198" blue="0.81183147430419922" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Company Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mms-me-J0b">
+                                                            <rect key="frame" x="16" y="55" width="343" height="24.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <color key="textColor" red="0.25098234415054321" green="0.25097692012786865" blue="0.25098058581352234" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GlF-WG-YQ2">
+                                                            <rect key="frame" x="16" y="92.5" width="343" height="24.5"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Job posted 02 Jun 2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uCd-zZ-6Zs">
+                                                            <rect key="frame" x="16" y="130" width="343" height="25"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <color key="textColor" red="0.47059160470962524" green="0.47058224678039551" blue="0.4705885648727417" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Saved 08 Jun 2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zfJ-e1-oqG">
+                                                            <rect key="frame" x="16" y="168" width="343" height="15.5"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                            <color key="textColor" red="0.31764942407608032" green="0.31764274835586548" blue="0.31764727830886841" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <edgeInsets key="layoutMargins" top="16" left="16" bottom="16" right="16"/>
+                                                </stackView>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ExpiredTag.png" translatesAutoresizingMaskIntoConstraints="NO" id="dVM-rz-ieK" userLabel="ExpiredTag">
+                                                    <rect key="frame" x="304" y="127.5" width="71" height="72"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="QRB-0f-owz" secondAttribute="bottom" id="00X-ep-dX0"/>
+                                                <constraint firstAttribute="bottom" secondItem="dVM-rz-ieK" secondAttribute="bottom" id="Jgb-RM-pC6"/>
+                                                <constraint firstItem="QRB-0f-owz" firstAttribute="top" secondItem="v3b-0W-Jb4" secondAttribute="top" id="L2a-Gb-TVz"/>
+                                                <constraint firstItem="QRB-0f-owz" firstAttribute="leading" secondItem="v3b-0W-Jb4" secondAttribute="leading" id="Xxf-lG-GE4"/>
+                                                <constraint firstAttribute="trailing" secondItem="QRB-0f-owz" secondAttribute="trailing" id="byU-Pr-gWN"/>
+                                                <constraint firstAttribute="trailing" secondItem="dVM-rz-ieK" secondAttribute="trailing" id="e5l-cC-I3G"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="companyNameLabel" destination="mms-me-J0b" id="cRa-At-GdN"/>
+                                            <outlet property="locationLabel" destination="GlF-WG-YQ2" id="3vW-Oq-a0A"/>
+                                            <outlet property="postedDateLabel" destination="uCd-zZ-6Zs" id="Ith-xq-DVc"/>
+                                            <outlet property="savedDateLabel" destination="zfJ-e1-oqG" id="L43-90-LZh"/>
+                                            <outlet property="titleLabel" destination="wXW-W0-Q9y" id="mt1-C4-mya"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -112,7 +168,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H89-Zx-UJ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="937" y="139"/>
+            <point key="canvasLocation" x="936.79999999999995" y="138.98050974512745"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ExpiredTag.png" width="71" height="72"/>
+    </resources>
 </document>
