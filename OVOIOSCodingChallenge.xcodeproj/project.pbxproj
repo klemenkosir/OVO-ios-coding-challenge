@@ -21,6 +21,10 @@
 		1C9F941C1F6FEB1000D753F8 /* SavedJobsResponsePage2.json in Resources */ = {isa = PBXBuildFile; fileRef = 1C9F941A1F6FEB1000D753F8 /* SavedJobsResponsePage2.json */; };
 		1C9F941E1F6FEB1C00D753F8 /* SavedJobsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9F941D1F6FEB1C00D753F8 /* SavedJobsClient.swift */; };
 		1CC8D2331F6FEDCC00A94E2D /* CodingChallengeDesign.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CC8D2321F6FEDCC00A94E2D /* CodingChallengeDesign.png */; };
+		82B0A92D229E75E80035D860 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B0A92C229E75E80035D860 /* NetworkingManager.swift */; };
+		82B0A930229E76300035D860 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B0A92F229E76300035D860 /* Job.swift */; };
+		82B0A932229E77920035D860 /* JobListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B0A931229E77920035D860 /* JobListViewController.swift */; };
+		82B0A936229E79030035D860 /* JobCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B0A935229E79030035D860 /* JobCell.swift */; };
 		9A7BB4E04A70AF50A6CC4152 /* Pods_OVOIOSCodingChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3AB09F48F8C11604141170 /* Pods_OVOIOSCodingChallenge.framework */; };
 		BD9A93C864C0B8B5AAA87CCC /* Pods_OVOIOSCodingChallengeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83FCE546C96BBDF4BB23EC92 /* Pods_OVOIOSCodingChallengeTests.framework */; };
 /* End PBXBuildFile section */
@@ -64,6 +68,10 @@
 		1C9F941D1F6FEB1C00D753F8 /* SavedJobsClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SavedJobsClient.swift; path = OVOIOSCodingChallenge/SavedJobsClient.swift; sourceTree = "<group>"; };
 		1CC8D2321F6FEDCC00A94E2D /* CodingChallengeDesign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CodingChallengeDesign.png; sourceTree = "<group>"; };
 		4648B61D642E8F61C7B18B22 /* Pods-OVOIOSCodingChallengeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OVOIOSCodingChallengeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OVOIOSCodingChallengeTests/Pods-OVOIOSCodingChallengeTests.release.xcconfig"; sourceTree = "<group>"; };
+		82B0A92C229E75E80035D860 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
+		82B0A92F229E76300035D860 /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
+		82B0A931229E77920035D860 /* JobListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobListViewController.swift; sourceTree = "<group>"; };
+		82B0A935229E79030035D860 /* JobCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobCell.swift; sourceTree = "<group>"; };
 		83FCE546C96BBDF4BB23EC92 /* Pods_OVOIOSCodingChallengeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OVOIOSCodingChallengeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB74EEF5D7DA35333CCD4529 /* Pods-OVOIOSCodingChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OVOIOSCodingChallenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-OVOIOSCodingChallenge/Pods-OVOIOSCodingChallenge.release.xcconfig"; sourceTree = "<group>"; };
 		AC5780099972178C1566E27F /* Pods-OVOIOSCodingChallenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OVOIOSCodingChallenge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OVOIOSCodingChallenge/Pods-OVOIOSCodingChallenge.debug.xcconfig"; sourceTree = "<group>"; };
@@ -126,7 +134,10 @@
 			isa = PBXGroup;
 			children = (
 				1C9F93E21F6FE9A800D753F8 /* AppDelegate.swift */,
-				1C9F93E41F6FE9A800D753F8 /* ViewController.swift */,
+				82B0A934229E78D50035D860 /* Views */,
+				82B0A933229E77970035D860 /* Controllers */,
+				82B0A92E229E76220035D860 /* Models */,
+				82B0A92B229E75C00035D860 /* Networking */,
 				1C9F93E61F6FE9A800D753F8 /* Main.storyboard */,
 				1C9F93E91F6FE9A800D753F8 /* Assets.xcassets */,
 				1C9F93EB1F6FE9A800D753F8 /* LaunchScreen.storyboard */,
@@ -164,6 +175,39 @@
 				1C9F94151F6FEAD400D753F8 /* ExpiredTag@3x.png */,
 			);
 			name = "Provided Code/Assets - No need to edit or test";
+			sourceTree = "<group>";
+		};
+		82B0A92B229E75C00035D860 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				82B0A92C229E75E80035D860 /* NetworkingManager.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		82B0A92E229E76220035D860 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				82B0A92F229E76300035D860 /* Job.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		82B0A933229E77970035D860 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1C9F93E41F6FE9A800D753F8 /* ViewController.swift */,
+				82B0A931229E77920035D860 /* JobListViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		82B0A934229E78D50035D860 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				82B0A935229E79030035D860 /* JobCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		B3474E83FCB89B6B50C8DC2F /* Frameworks */ = {
@@ -256,6 +300,7 @@
 				TargetAttributes = {
 					1C9F93DE1F6FE9A800D753F8 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = ZU8BPHNXQD;
 						ProvisioningStyle = Automatic;
 					};
 					1C9F93F21F6FE9A800D753F8 = {
@@ -368,9 +413,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82B0A932229E77920035D860 /* JobListViewController.swift in Sources */,
 				1C9F93E51F6FE9A800D753F8 /* ViewController.swift in Sources */,
+				82B0A92D229E75E80035D860 /* NetworkingManager.swift in Sources */,
 				1C9F93E31F6FE9A800D753F8 /* AppDelegate.swift in Sources */,
 				1C9F941E1F6FEB1C00D753F8 /* SavedJobsClient.swift in Sources */,
+				82B0A930229E76300035D860 /* Job.swift in Sources */,
+				82B0A936229E79030035D860 /* JobCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,7 +572,7 @@
 			baseConfigurationReference = AC5780099972178C1566E27F /* Pods-OVOIOSCodingChallenge.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = ZU8BPHNXQD;
 				INFOPLIST_FILE = OVOIOSCodingChallenge/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = au.com.ourveryown.OVOIOSCodingChallenge;
@@ -537,7 +586,7 @@
 			baseConfigurationReference = AB74EEF5D7DA35333CCD4529 /* Pods-OVOIOSCodingChallenge.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = ZU8BPHNXQD;
 				INFOPLIST_FILE = OVOIOSCodingChallenge/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = au.com.ourveryown.OVOIOSCodingChallenge;
