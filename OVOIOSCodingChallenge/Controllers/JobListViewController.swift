@@ -13,6 +13,7 @@ class JobListViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var infoLabel: UILabel!
     @IBOutlet private weak var navBarContentView: UIView!
+    private var refreshControl: UIRefreshControl!
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -29,6 +30,14 @@ class JobListViewController: UIViewController {
         didSet {
             // everytime we set filtered jobs we need to reload the tableview to show the latest data
             tableView.reloadData()
+            
+            // refresh is disabled while we are searching
+            if let _ = filteredJobs {
+                tableView.refreshControl = nil
+            }
+            else {
+                tableView.refreshControl = refreshControl
+            }
         }
     }
     
@@ -62,13 +71,14 @@ class JobListViewController: UIViewController {
         navBarContentView.trailingAnchor.constraint(equalTo: searchVC.view.trailingAnchor, constant: 0).isActive = true
     }
     
+    /// Sets the UIRefreshControl to tableView and adds target to it
     private func setPullToRefresh() {
-        let refreshControl = UIRefreshControl()
+        refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
         tableView.refreshControl = refreshControl
     }
     
-    /// Function is used for loading jobs per page
+    /// Function is used for loading jobs per page, if reload is true it will override all previous data
     private func loadPage(_ page: Int = 1, reload: Bool = false) {
         SavedJobsClient.getSavedJobsResponse(page: page) { [weak self] (response, error) in
             guard let safeSelf = self else { return }
@@ -87,9 +97,13 @@ class JobListViewController: UIViewController {
         }
     }
     
+    /// Called when we want to load the next page
     private func loadNextPage() {
+        // checks if already loading the next page, if it is then just skip
+        // this is a very basic pagination implementation, without queueing next page requests and prefetching
         guard !isLoadingNextPage else { return }
         isLoadingNextPage = true
+        // checks if there is a next page
         if let nextPage = jobResponse?.nextPage {
             loadPage(nextPage)
         }
@@ -106,6 +120,19 @@ class JobListViewController: UIViewController {
         self.present(alertVC, animated: true, completion: nil)
     }
     
+    @objc private func refreshData(_ sender: UIRefreshControl) {
+        // Async added because we are using local data and we want it to feel like a real refresh
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.loadPage(1, reload: true)
+            sender.endRefreshing()
+        }
+    }
+
+}
+
+// MARK: - Keyboard
+extension JobListViewController {
+    
     @objc private func keyboardWillShow(_ notification: Notification) {
         if let newFrame = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             var insets: UIEdgeInsets
@@ -117,9 +144,9 @@ class JobListViewController: UIViewController {
             }
             
             /*
-                We set the contentInset and scrollIndicatorInsets to keyboard height so the user can scroll through the whole list even
-                when the keyboard is visible.
-            */
+             We set the contentInset and scrollIndicatorInsets to keyboard height so the user can scroll through the whole list even
+             when the keyboard is visible.
+             */
             tableView.contentInset = insets
             tableView.scrollIndicatorInsets = insets
         }
@@ -131,16 +158,9 @@ class JobListViewController: UIViewController {
         tableView.scrollIndicatorInsets = .zero
     }
     
-    @objc private func refreshData(_ sender: UIRefreshControl) {
-        // Async added because we are using local data and we want it to feel like a real refresh
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            self.loadPage(1, reload: true)
-            sender.endRefreshing()
-        }
-    }
-
 }
 
+// MARK: - TableView Delegate and DataSource
 extension JobListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -169,6 +189,7 @@ extension JobListViewController: UITableViewDelegate, UITableViewDataSource {
     
 }
 
+// MARK: - Search Delegate
 extension JobListViewController: SearchDelegate {
     
     func searchEnded() {
