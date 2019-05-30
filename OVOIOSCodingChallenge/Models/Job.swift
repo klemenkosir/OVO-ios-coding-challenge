@@ -27,12 +27,12 @@ class Job: Decodable {
     private let listedDateUtc: String
     private let savedDateUtc: String
     
-    lazy var listedDate: Date = {
-        return Date(from: self.listedDateUtc) ?? Date()
+    lazy var listedDate: Date? = {
+        return Date(from: self.listedDateUtc)
     }()
     
-    lazy var savedDate: Date = {
-        return Date(from: self.savedDateUtc) ?? Date()
+    lazy var savedDate: Date? = {
+        return Date(from: self.savedDateUtc)
     }()
     
 }

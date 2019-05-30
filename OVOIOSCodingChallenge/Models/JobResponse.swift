@@ -8,7 +8,28 @@
 
 import Foundation
 
-struct JobsResponse: Decodable {
-    let jobs: [Job]
-    let nextPage: Int
+
+/// JobsResponse object helps with conversion from json to jobs by also including nextPage number for pagination
+class JobsResponse: Decodable {
+    private(set) var jobs: [Job]
+    private(set) var nextPage: Int?
+    
+    private enum CodingKeys: String, CodingKey {
+        case jobs, nextPage
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        jobs = try container.decode([Job].self, forKey: .jobs)
+        nextPage = try? container.decodeIfPresent(Int.self, forKey: .nextPage)
+    }
+}
+
+extension JobsResponse {
+    /// Helper append function for pagination
+    func append(nextPage response: JobsResponse) {
+        jobs.append(contentsOf: response.jobs)
+        nextPage = response.nextPage
+    }
+    
 }

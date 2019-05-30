@@ -167,10 +167,18 @@
                                     <outlet property="delegate" destination="N32-Y0-nN4" id="kUr-pi-Wfd"/>
                                 </connections>
                             </tableView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OFd-gQ-Cwm">
+                                <rect key="frame" x="187.5" y="333.5" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="OFd-gQ-Cwm" firstAttribute="centerX" secondItem="vnE-5q-qgE" secondAttribute="centerX" id="4OY-f2-5Zb"/>
                             <constraint firstItem="oMw-HA-xXz" firstAttribute="leading" secondItem="vnE-5q-qgE" secondAttribute="leading" id="Cfn-Gm-zCn"/>
+                            <constraint firstItem="OFd-gQ-Cwm" firstAttribute="centerY" secondItem="vnE-5q-qgE" secondAttribute="centerY" id="J0n-XU-Nuk"/>
                             <constraint firstItem="yoG-RL-GJX" firstAttribute="leading" secondItem="vnE-5q-qgE" secondAttribute="leading" id="Lbe-kB-xsu"/>
                             <constraint firstAttribute="bottom" secondItem="yoG-RL-GJX" secondAttribute="bottom" id="OU0-Je-Mcz"/>
                             <constraint firstAttribute="trailing" secondItem="yoG-RL-GJX" secondAttribute="trailing" id="Od4-46-bzb"/>
@@ -181,6 +189,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="infoLabel" destination="OFd-gQ-Cwm" id="dNL-pb-ruy"/>
                         <outlet property="tableView" destination="yoG-RL-GJX" id="dpa-DM-7ia"/>
                     </connections>
                 </viewController>
