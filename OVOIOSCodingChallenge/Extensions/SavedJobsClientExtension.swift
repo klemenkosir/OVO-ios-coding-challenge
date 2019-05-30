@@ -21,6 +21,7 @@ extension SavedJobsClient {
         
         do {
             let data = try Data(contentsOf: file)
+            // Here we try to decode JSON data object to JobsResponse object that conforms to Decodable
             let response = try JSONDecoder().decode(JobsResponse.self, from: data)
             return completionHandler(response, nil)
         }

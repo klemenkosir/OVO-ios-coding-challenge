@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// JobCell handles presentation of the job on the tableView
 class JobCell: UITableViewCell {
 
     @IBOutlet private weak var titleLabel: UILabel!
@@ -22,6 +23,7 @@ class JobCell: UITableViewCell {
     ///
     /// - Parameter job: Any Job object as input
     func set(job: Job) {
+        
         let attributedTitleString = NSMutableAttributedString(string: job.title,
                                                               attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 18, weight: .semibold),
                                                                            NSAttributedString.Key.foregroundColor: UIColor(red: 61/255.0, green: 123/255.0, blue: 207/255.0, alpha: 1.0)])

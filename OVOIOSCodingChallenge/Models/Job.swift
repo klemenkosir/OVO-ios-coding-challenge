@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Possible Statuses for the Job
 enum JobStatus: String, Decodable {
     case expired = "Expired"
     case active = "Active"
