@@ -314,11 +314,13 @@
 					};
 					1C9F93F21F6FE9A800D753F8 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = ZU8BPHNXQD;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 1C9F93DE1F6FE9A800D753F8;
 					};
 					1C9F93FD1F6FE9A800D753F8 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = ZU8BPHNXQD;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 1C9F93DE1F6FE9A800D753F8;
 					};
@@ -613,7 +615,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = ZU8BPHNXQD;
 				INFOPLIST_FILE = OVOIOSCodingChallengeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = au.com.ourveryown.OVOIOSCodingChallengeTests;
@@ -629,7 +631,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = ZU8BPHNXQD;
 				INFOPLIST_FILE = OVOIOSCodingChallengeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = au.com.ourveryown.OVOIOSCodingChallengeTests;
@@ -643,6 +645,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = ZU8BPHNXQD;
 				INFOPLIST_FILE = OVOIOSCodingChallengeUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = au.com.ourveryown.OVOIOSCodingChallengeUITests;
@@ -656,6 +659,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = ZU8BPHNXQD;
 				INFOPLIST_FILE = OVOIOSCodingChallengeUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = au.com.ourveryown.OVOIOSCodingChallengeUITests;

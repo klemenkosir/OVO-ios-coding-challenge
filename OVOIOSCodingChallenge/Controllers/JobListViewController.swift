@@ -63,13 +63,13 @@ class JobListViewController: UIViewController {
         tableView.refreshControl = refreshControl
     }
     
-    private func loadPage(_ page: Int = 1) {
+    private func loadPage(_ page: Int = 1, reload: Bool = false) {
         SavedJobsClient.getSavedJobsResponse(page: page) { [weak self] (response, error) in
             guard let safeSelf = self, let r = response else {
                 print(error)
                 return
             }
-            if let jr = safeSelf.jobResponse {
+            if let jr = safeSelf.jobResponse, !reload {
                 jr.append(nextPage: r)
             }
             else {
@@ -96,6 +96,7 @@ class JobListViewController: UIViewController {
     @objc private func refreshData(_ sender: UIRefreshControl) {
         print("REFRESH DATA")
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            self.loadPage(1, reload: true)
             sender.endRefreshing()
         }
     }

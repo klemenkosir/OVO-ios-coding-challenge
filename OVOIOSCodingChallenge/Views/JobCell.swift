@@ -41,7 +41,8 @@ class JobCell: UITableViewCell {
         companyNameLabel.text = job.advertiser
         locationLabel.text = job.location
         
-        
+        postedDateLabel.text = "Job posted \(job.listedDate?.toString(format: "dd MMM yyyy") ?? "unknwon")"
+        savedDateLabel.text = "Saved \(job.savedDate?.toString(format: "dd MMM yyyy") ?? "unkown")"
         
     }
 
