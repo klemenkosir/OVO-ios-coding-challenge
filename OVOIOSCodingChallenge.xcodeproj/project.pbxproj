@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1C9F93E31F6FE9A800D753F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9F93E21F6FE9A800D753F8 /* AppDelegate.swift */; };
-		1C9F93E51F6FE9A800D753F8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9F93E41F6FE9A800D753F8 /* ViewController.swift */; };
 		1C9F93E81F6FE9A800D753F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C9F93E61F6FE9A800D753F8 /* Main.storyboard */; };
 		1C9F93EA1F6FE9A800D753F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C9F93E91F6FE9A800D753F8 /* Assets.xcassets */; };
 		1C9F93ED1F6FE9A800D753F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C9F93EB1F6FE9A800D753F8 /* LaunchScreen.storyboard */; };
@@ -52,7 +51,6 @@
 /* Begin PBXFileReference section */
 		1C9F93DF1F6FE9A800D753F8 /* OVOIOSCodingChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OVOIOSCodingChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C9F93E21F6FE9A800D753F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1C9F93E41F6FE9A800D753F8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1C9F93E71F6FE9A800D753F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1C9F93E91F6FE9A800D753F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1C9F93EC1F6FE9A800D753F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -195,7 +193,6 @@
 		82B0A933229E77970035D860 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				1C9F93E41F6FE9A800D753F8 /* ViewController.swift */,
 				82B0A931229E77920035D860 /* JobListViewController.swift */,
 				82B0A940229F8BEC0035D860 /* SearchViewController.swift */,
 			);
@@ -426,7 +423,6 @@
 			files = (
 				82B0A941229F8BEC0035D860 /* SearchViewController.swift in Sources */,
 				82B0A932229E77920035D860 /* JobListViewController.swift in Sources */,
-				1C9F93E51F6FE9A800D753F8 /* ViewController.swift in Sources */,
 				82B0A93C229E82DB0035D860 /* JobResponse.swift in Sources */,
 				1C9F93E31F6FE9A800D753F8 /* AppDelegate.swift in Sources */,
 				82B0A93F229E88B50035D860 /* DateExtension.swift in Sources */,
