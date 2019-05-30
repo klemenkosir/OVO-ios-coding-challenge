@@ -13,7 +13,9 @@ enum JobStatus: String, Decodable {
     case active = "Active"
 }
 
-struct Job: Decodable {
+
+/// Class definition for the Job model that conforms to Decodable protocol
+class Job: Decodable {
     
     let jobId: Int
     let title: String
@@ -22,7 +24,15 @@ struct Job: Decodable {
     let status: JobStatus
     let salary: String
     let isExternal: Bool
-    let listedDateUtc: Date
-    let savedDateUtc: Date
+    private let listedDateUtc: String
+    private let savedDateUtc: String
+    
+    lazy var listedDate: Date = {
+        return Date(from: self.listedDateUtc) ?? Date()
+    }()
+    
+    lazy var savedDate: Date = {
+        return Date(from: self.savedDateUtc) ?? Date()
+    }()
     
 }

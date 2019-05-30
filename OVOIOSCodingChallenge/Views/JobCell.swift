@@ -10,15 +10,39 @@ import UIKit
 
 class JobCell: UITableViewCell {
 
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var companyNameLabel: UILabel!
-    @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var postedDateLabel: UILabel!
-    @IBOutlet weak var savedDateLabel: UILabel!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var companyNameLabel: UILabel!
+    @IBOutlet private weak var locationLabel: UILabel!
+    @IBOutlet private weak var postedDateLabel: UILabel!
+    @IBOutlet private weak var savedDateLabel: UILabel!
+    @IBOutlet private weak var expiredTag: UIImageView!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    
+    /// Function that sets the job object to the cell
+    ///
+    /// - Parameter job: Any Job object as input
+    func set(job: Job) {
+        let attributedTitleString = NSMutableAttributedString(string: job.title,
+                                                              attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 18, weight: .semibold),
+                                                                           NSAttributedString.Key.foregroundColor: UIColor(red: 61/255.0, green: 123/255.0, blue: 207/255.0, alpha: 1.0)])
+        switch job.status {
+        case .active:
+            expiredTag.isHidden = true
+        case .expired:
+            expiredTag.isHidden = false
+            let expiredAttrString = NSAttributedString(string: "EXPIRED - ",
+                                                       attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 18, weight: .semibold),
+                                                                    NSAttributedString.Key.foregroundColor: UIColor(red: 39/255.0, green: 39/255.0, blue: 39/255.0, alpha: 1.0)])
+            attributedTitleString.insert(expiredAttrString, at: 0)
+        }
+        titleLabel.attributedText = attributedTitleString
+        
+        
+        companyNameLabel.text = job.advertiser
+        locationLabel.text = job.location
+        
+        
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
