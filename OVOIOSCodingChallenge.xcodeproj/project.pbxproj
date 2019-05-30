@@ -27,6 +27,7 @@
 		82B0A93A229E826C0035D860 /* SavedJobsClientExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B0A939229E826C0035D860 /* SavedJobsClientExtension.swift */; };
 		82B0A93C229E82DB0035D860 /* JobResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B0A93B229E82DB0035D860 /* JobResponse.swift */; };
 		82B0A93F229E88B50035D860 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B0A93E229E88B50035D860 /* DateExtension.swift */; };
+		82B0A941229F8BEC0035D860 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B0A940229F8BEC0035D860 /* SearchViewController.swift */; };
 		9A7BB4E04A70AF50A6CC4152 /* Pods_OVOIOSCodingChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3AB09F48F8C11604141170 /* Pods_OVOIOSCodingChallenge.framework */; };
 		BD9A93C864C0B8B5AAA87CCC /* Pods_OVOIOSCodingChallengeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83FCE546C96BBDF4BB23EC92 /* Pods_OVOIOSCodingChallengeTests.framework */; };
 /* End PBXBuildFile section */
@@ -76,6 +77,7 @@
 		82B0A939229E826C0035D860 /* SavedJobsClientExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedJobsClientExtension.swift; sourceTree = "<group>"; };
 		82B0A93B229E82DB0035D860 /* JobResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobResponse.swift; sourceTree = "<group>"; };
 		82B0A93E229E88B50035D860 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		82B0A940229F8BEC0035D860 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		83FCE546C96BBDF4BB23EC92 /* Pods_OVOIOSCodingChallengeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OVOIOSCodingChallengeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB74EEF5D7DA35333CCD4529 /* Pods-OVOIOSCodingChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OVOIOSCodingChallenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-OVOIOSCodingChallenge/Pods-OVOIOSCodingChallenge.release.xcconfig"; sourceTree = "<group>"; };
 		AC5780099972178C1566E27F /* Pods-OVOIOSCodingChallenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OVOIOSCodingChallenge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OVOIOSCodingChallenge/Pods-OVOIOSCodingChallenge.debug.xcconfig"; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 			children = (
 				1C9F93E41F6FE9A800D753F8 /* ViewController.swift */,
 				82B0A931229E77920035D860 /* JobListViewController.swift */,
+				82B0A940229F8BEC0035D860 /* SearchViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82B0A941229F8BEC0035D860 /* SearchViewController.swift in Sources */,
 				82B0A932229E77920035D860 /* JobListViewController.swift in Sources */,
 				1C9F93E51F6FE9A800D753F8 /* ViewController.swift in Sources */,
 				82B0A93C229E82DB0035D860 /* JobResponse.swift in Sources */,
