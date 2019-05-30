@@ -21,8 +21,14 @@ class JobListViewController: UIViewController {
     
     private var jobResponse: JobsResponse?
     
-    private var jobs: [Job]? {
-        return filteredJobs ?? jobResponse?.jobs
+    private var jobs: [Job] {
+        if let fj = filteredJobs {
+            return fj
+        }
+        if let j = jobResponse?.jobs {
+            return j
+        }
+        return []
     }
     
     /// filtered jobs contains jobs filtered by search string, if nil all jobs will be presented
@@ -34,15 +40,17 @@ class JobListViewController: UIViewController {
             // refresh is disabled while we are searching
             if let _ = filteredJobs {
                 tableView.refreshControl = nil
+                canLoadNextPage = false
             }
             else {
                 tableView.refreshControl = refreshControl
+                canLoadNextPage = true
             }
         }
     }
     
     /// This boolean tells us if laoding of the next page is currently in progress or not
-    private var isLoadingNextPage = false
+    private var canLoadNextPage = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,7 +101,7 @@ class JobListViewController: UIViewController {
                 safeSelf.jobResponse = r
             }
             safeSelf.tableView.reloadData()
-            safeSelf.isLoadingNextPage = false
+            safeSelf.canLoadNextPage = true
         }
     }
     
@@ -101,15 +109,15 @@ class JobListViewController: UIViewController {
     private func loadNextPage() {
         // checks if already loading the next page, if it is then just skip
         // this is a very basic pagination implementation, without queueing next page requests and prefetching
-        guard !isLoadingNextPage else { return }
-        isLoadingNextPage = true
+        guard canLoadNextPage else { return }
+        canLoadNextPage = false
         // checks if there is a next page
         if let nextPage = jobResponse?.nextPage {
             loadPage(nextPage)
         }
         else {
             // seems like this is the last page
-            isLoadingNextPage = false
+            canLoadNextPage = true
         }
     }
     
@@ -164,26 +172,39 @@ extension JobListViewController {
 extension JobListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let numOfJobs = jobs?.count ?? 0
+        var numOfCells = jobs.count
+        
+        // We check if there is next page and add 1 for the last loadingCell, we dont support pagination while filtering
+        if (jobResponse?.hasNextPage ?? true) == true && canLoadNextPage {
+            numOfCells += 1
+        }
+        
         // if there is no jobs we show the label saying "No jobs" to the user
-        infoLabel.isHidden = (numOfJobs != 0)
-        return numOfJobs
+        infoLabel.isHidden = (numOfCells != 0)
+        
+        return numOfCells
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        if indexPath.row+1 == jobs!.count {
+        if indexPath.row >= jobs.count {
+            // show last cell as loading cell if row higher than number of jobs
+            return tableView.dequeueReusableCell(withIdentifier: "loadingCell", for: indexPath)
+        }
+        else if indexPath.row+1 == jobs.count {
             // before presenting the last cell we check if there is more data(next page), if there is, tableView will get reloaded
             loadNextPage()
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "jobCell", for: indexPath) as! JobCell
-        let job = jobs![indexPath.row]
+        let job = jobs[indexPath.row]
         cell.set(job: job)
         return cell
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row >= jobs.count {
+            return 100
+        }
         return 180
     }
     

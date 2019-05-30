@@ -16,6 +16,10 @@ class JobsResponse: Decodable {
     /// Tells the number of the next page. Nil means no next page.
     private(set) var nextPage: Int?
     
+    var hasNextPage: Bool {
+        return nextPage != nil
+    }
+    
     private enum CodingKeys: String, CodingKey {
         case jobs, nextPage
     }
