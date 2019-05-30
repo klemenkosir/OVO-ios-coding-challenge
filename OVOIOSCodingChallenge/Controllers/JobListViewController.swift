@@ -84,7 +84,6 @@ class JobListViewController: UIViewController {
         guard !isLoadingNextPage else { return }
         isLoadingNextPage = true
         if let nextPage = jobResponse?.nextPage {
-            print("NEXT PAGE: ", nextPage)
             loadPage(nextPage)
         }
         else {

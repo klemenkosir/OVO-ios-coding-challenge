@@ -31,4 +31,30 @@ class OVOIOSCodingChallengeTests: XCTestCase {
         
     }
     
+    func testDateToString() {
+        
+        let dateString = "2017-05-26T04:25:20.62Z"
+        
+        let date = Date(from: dateString)
+    
+        let dateFormattedString = date?.toString(format: "dd MMM yyyy")
+        
+        XCTAssertEqual(dateFormattedString, "26 May 2017")
+        
+    }
+    
+    func testSavedJobsClient() {
+        
+        SavedJobsClient.getSavedJobsResponse(page: -1) { (response, error) in
+            XCTAssertNil(response)
+            XCTAssertNotNil(error)
+        }
+        
+        SavedJobsClient.getSavedJobsResponse(page: 1) { (response, error) in
+            XCTAssertNotNil(response)
+            XCTAssertNil(error)
+        }
+        
+    }
+    
 }
