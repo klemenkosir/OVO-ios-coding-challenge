@@ -44,6 +44,7 @@ class SearchViewController: UIViewController {
             self.visibleWidthConstraint.constant = self.view.superview!.frame.width
             self.view.superview!.layoutIfNeeded()
         }.startAnimation()
+        UISelectionFeedbackGenerator().selectionChanged()
     }
     
     @IBAction func closeButtonHandler(_ sender: Any) {
@@ -53,6 +54,7 @@ class SearchViewController: UIViewController {
             self.view.superview!.layoutIfNeeded()
             }.startAnimation()
         delegate?.searchEnded()
+        UISelectionFeedbackGenerator().selectionChanged()
     }
 }
 
