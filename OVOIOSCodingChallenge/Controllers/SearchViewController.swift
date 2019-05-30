@@ -31,6 +31,7 @@ class SearchViewController: UIViewController {
     /// Set your class to this delegate property to receive actions from search
     weak var delegate: SearchDelegate?
     
+    /// Method returns instance of this class from storyboard
     static func viewController() -> SearchViewController {
         return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "searchViewController") as! SearchViewController
     }
@@ -58,8 +59,10 @@ class SearchViewController: UIViewController {
         }.startAnimation()
         // For better user experience we trigger selection haptic feedback
         UISelectionFeedbackGenerator().selectionChanged()
-        //  Show keyboard on every search start
-        textField.becomeFirstResponder()
+        //  Show keyboard on every search start, we do it async so there is no lag in animation on first tap #hack :P
+        DispatchQueue.main.async {
+            self.textField.becomeFirstResponder()
+        }
     }
     
     
